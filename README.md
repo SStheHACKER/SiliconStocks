@@ -1,6 +1,6 @@
 # FPGA-Accelerated Multi-Algorithm HFT System
 
-This repository contains the implementation of a high-frequency trading (HFT) system on Nexys A7 FPGA. The design integrates **four distinct HFT algorithms** along with a custom **on-chip RAM module** that efficiently stores and processes data for multiple stocks. The integrated output from these algorithms aims to enhance trading decisions by leveraging the unique strengths of each strategy.
+This repository contains the implementation of a **high-frequency trading (HFT)** system on **Nexys A7 FPGA** using **verilog**. The design integrates **four distinct HFT algorithms** along with a custom **on-chip RAM module** that efficiently stores and processes data for multiple stocks. The integrated output from these algorithms aims to enhance trading decisions by leveraging the unique strengths of each strategy.
 
 ## Overview
 
