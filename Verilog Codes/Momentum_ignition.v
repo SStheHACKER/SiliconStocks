@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 16.04.2025 23:55:23
+// Create Date: 12.04.2025 16:17:44
 // Design Name: 
 // Module Name: Momentum_ignition
 // Project Name: 
@@ -26,7 +26,7 @@ input clk,
 input rst,
 //input [13:0] current_price,
 //input [1:0] stock_id,
-input [15:0] data_in,
+input [7:0] data_in,
 output buy_signal,
 output sell_signal,
 output[1:0] stock_idd
@@ -36,31 +36,31 @@ output[1:0] stock_idd
 //    parameter volume_threshold = 80000;
     parameter desired_price_change = 7;
     
-    wire [13:0] current_price;
-    reg [13:0] next_price;
+    wire [5:0] current_price;
+    reg [5:0] next_price;
     wire [1:0] stock_id;
     reg buy_signal_reg;
     reg sell_signal_reg;
     
-    reg[13:0] moving_avg [0:3];
-    reg[13:0] entry_price[0:3];
+    reg[5:0] moving_avg [0:3];
+    reg[5:0] entry_price[0:3];
     
-    assign current_price = data_in[13:0];
-    assign stock_id = data_in[15:14];
+    assign current_price = data_in[5:0];
+    assign stock_id = data_in[7:6];
     
     always @(posedge clk) begin
         if(rst) begin
 //            current_price <= data_in[13:0];
             buy_signal_reg <= 1'b0;
             sell_signal_reg <= 1'b0;
-            entry_price[0]<= 14'b10101010011011;
-            entry_price[1]<= 14'b0;
-            entry_price[2]<= 14'b0;
-            entry_price[3]<= 14'b0;
-            moving_avg[0] <= 14'b10101010010100; // 10900
-            moving_avg[1] <= 14'b00001011101110; // 750
-            moving_avg[2] <= 14'b00010011100010; // 1250
-            moving_avg[3] <= 14'b00100101101100; // 2412
+            entry_price[0]<= 6'b101010;
+            entry_price[1]<= 6'b0;
+            entry_price[2]<= 6'b0;
+            entry_price[3]<= 6'b0;
+            moving_avg[0] <= 6'b101010; // 10900
+            moving_avg[1] <= 6'b000010; // 750
+            moving_avg[2] <= 6'b000100; // 1250
+            moving_avg[3] <= 6'b001001; // 2412
         end
         else begin
         if(enable) begin
@@ -98,4 +98,3 @@ output[1:0] stock_idd
   assign sell_signal = sell_signal_reg;         
 
 endmodule
-
