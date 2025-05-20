@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 16.04.2025 23:56:24
+// Create Date: 12.04.2025 16:23:23
 // Design Name: 
 // Module Name: RSI_algorithm
 // Project Name: 
@@ -24,7 +24,7 @@ module RSI_algorithm(
     input wire clk,
     input wire rst,
     input wire enable,
-    input wire [15:0] price_in,  // [15:14] = stock_id, [13:0] = price
+    input wire [7:0] price_in,  // [15:14] = stock_id, [13:0] = price
     
     output reg buy_signal,
     output reg sell_signal,
@@ -36,23 +36,23 @@ module RSI_algorithm(
     parameter RSI_OVERSOLD = 30;   
     
     reg [15:0] gain_sum, loss_sum;
-    reg [13:0] prev_price; 
-    wire [13:0] price = price_in[13:0]; 
+    reg [5:0] prev_price; 
+    wire [5:0] price = price_in[5:0]; 
     reg [15:0] RS;
     reg [15:0] RSI;
     
-    wire [1:0] stock_id = price_in[15:14]; 
+    wire [1:0] stock_id = price_in[7:6]; 
 
-    reg [13:0] price_history [0:N-1];  
+    reg [5:0] price_history [0:N-1];  
     integer i;
     
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             for (i = 0; i < N; i = i + 1)
-                price_history[i] <= 14'd0;
+                price_history[i] <= 6'd0;
             gain_sum  <= 0;
             loss_sum  <= 0;
-            prev_price <= 14'd0;
+            prev_price <= 6'd0;
             buy_signal <= 0;
             sell_signal <= 0;
             stock_id_out <= 2'b00;
@@ -100,4 +100,5 @@ module RSI_algorithm(
             stock_id_out <= stock_id;
         end
     end
+
 endmodule
