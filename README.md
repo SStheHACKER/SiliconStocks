@@ -1,37 +1,52 @@
 # FPGA-Accelerated Multi-Algorithm HFT System
 
-This repository contains the implementation of a **high-frequency trading (HFT)** system on **Nexys A7 FPGA** using **verilog**. The design integrates **four distinct HFT algorithms** along with a custom **on-chip RAM module** that efficiently stores and processes data for multiple stocks. The integrated output from these algorithms aims to enhance trading decisions by leveraging the unique strengths of each strategy.
+This repository hosts the Verilog-based implementation of a **High-Frequency Trading (HFT) system** on the **Nexys A7 FPGA** platform. The design incorporates **four distinct trading algorithms**, supported by a custom **on-chip RAM module**, all orchestrated to deliver high-speed, low-latency decision-making for multiple stock assets.
 
-## Overview
+---
 
-High-frequency trading requires rapid data processing and decision-making with ultra-low latency. This project targets these requirements by:
-- **Utilizing FPGA hardware** for high-speed parallel processing.
-- **Implementing four independent HFT algorithms** to analyze real-time market data.
-- **Integrating a dedicated on-chip RAM module** for efficient data storage and retrieval.
-- **Fusing algorithm outputs** to generate a consolidated trading signal, enhancing overall system performance and robustness.
+## 🧠 Project Objective
 
-## Features
+High-frequency trading demands **ultra-low latency**, **parallel processing**, and **robust decision-making**. This project addresses those requirements by leveraging the **hardware acceleration capabilities of FPGAs**, enabling:
 
-- **Multiple HFT Strategies:** Four independent algorithms, each designed to capture different market signals.
-- **On-Chip RAM Module:** Custom memory block optimized for rapid storage and access of multi-stock data.
-- **Integrated Decision Making:** Combines algorithm outputs to provide a more accurate and reliable trading signal.
-- **FPGA Implementation:** Achieves ultra-low latency processing essential for high-frequency trading environments.
-- **Modular and Scalable:** Easily extendable architecture for future enhancements and additional algorithms.
+- Concurrent execution of multiple HFT strategies.
+- Efficient handling of real-time market data.
+- Intelligent signal fusion for enhanced trade accuracy.
 
-## System Architecture
+---
 
-The design is partitioned into three primary modules:
+## ⚙️ Key Features
 
-1. **HFT Algorithms Module**
-   - Contains four Verilog files, each implementing a unique trading strategy.
-   - Processes incoming market data in parallel to generate individual trading signals.
+- 🔄 **Multi-Strategy Execution**: Implements **four unique trading algorithms** to extract diverse market insights.
+- 🧠 **Integrated Signal Fusion**: Combines individual strategy outputs into a **unified trading decision**.
+- 📦 **On-Chip RAM**: High-speed custom RAM module for real-time data access across multiple stock feeds.
+- ⚡ **FPGA-Powered Acceleration**: Runs entirely on Nexys A7 FPGA, enabling **parallelism** and **minimum latency**.
+- 🔧 **Modular Design**: Fully scalable — new strategies or memory enhancements can be added seamlessly.
 
-2. **On-Chip RAM Module**
-   - Designed to store data for multiple stocks with high-speed read/write capabilities.
-   - Ensures that real-time data is readily available for algorithm processing.
+---
 
-3. **Integration Module**
-   - Merges outputs from the four algorithms using a configurable fusion logic.
-   - Provides a consolidated decision output to the trading interface.
+## 🏗️ System Architecture
 
-The entire system is synthesized and deployed on a Nexys A7 FPGA, harnessing its parallel processing power for real-time applications.
+The system is logically divided into three primary modules:
+
+### 1. 📊 HFT Algorithms Module
+- Contains four Verilog-based submodules, each implementing a unique trading strategy.
+- Designed to **process market data in parallel**, producing independent signals per algorithm.
+
+### 2. 💾 On-Chip RAM Module
+- Custom-designed memory module with high-speed **read/write** capability.
+- Supports **multi-stock data handling** and provides immediate access to live market data.
+
+### 3. 🔗 Integration Module
+- Collects outputs from all four strategies.
+- Applies **fusion logic** to generate a **final consolidated trading signal**.
+- Acts as the bridge between decision-making and trading execution.
+
+---
+
+## 🖥️ Platform & Tools
+
+- 🔌 **Target Board**: Nexys A7 FPGA
+- 🛠️ **Hardware Description Language**: Verilog
+- 💻 **Development Suite**: Xilinx Vivado Design Suite
+
+---
