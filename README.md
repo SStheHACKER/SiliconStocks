@@ -21,6 +21,7 @@ High-frequency trading demands **ultra-low latency**, **parallel processing**, a
 - 📦 **On-Chip RAM**: High-speed custom RAM module for real-time data access across multiple stock feeds.
 - ⚡ **FPGA-Powered Acceleration**: Runs entirely on Nexys A7 FPGA, enabling **parallelism** and **minimum latency**.
 - 🔧 **Modular Design**: Fully scalable — new strategies or memory enhancements can be added seamlessly.
+- 🛰️ **UART Interface**: Implemented a Verilog-based UART module for **serial communication**, allowing external monitoring or data logging of trading signals.
 
 ---
 
@@ -40,6 +41,11 @@ The system is logically divided into three primary modules:
 - Collects outputs from all four strategies.
 - Applies **fusion logic** to generate a **final consolidated trading signal**.
 - Acts as the bridge between decision-making and trading execution.
+  
+### 4. 🛰️ UART Communication Module (Optional)
+- Facilitates serial communication with an external interface.
+- Used for logging trade signals or monitoring system output via terminal tools (e.g., PuTTY, serial monitor).
+
 
 ---
 
